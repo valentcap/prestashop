@@ -1,0 +1,22 @@
+services:
+  prestashop:
+    image: 'bitnami/prestashop:1.7'
+    environment:
+      - MARIADB_HOST=tugas2.cwj6clbfympv.us-east-1.rds.amazonaws.com
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=adminadmin
+      - MARIADB_PORT_NUMBER=3306
+      - PRESTASHOP_HOST=54.210.162.188
+      - PRESTASHOP_DATABASE_USER=admin
+      - PRESTASHOP_DATABASE_NAME=adsis
+      - PRESTASHOP_DATABASE_PASSWORD=adminadmin
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - 'prestashop_data:/bitnami'
+
+volumes:
+  prestashop_data:
+    driver: local
+
